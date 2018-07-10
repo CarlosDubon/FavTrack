@@ -1,5 +1,6 @@
 package com.bonusteam.favtrack.room.dao;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -24,5 +25,5 @@ public interface UsuarioDao {
     void deleteUsuario(Usuario... usuarios);
 
     @Query("SELECT * FROM usuario_table")
-    Usuario obtenerUsuario();
+    LiveData<Usuario> obtenerUsuario();
 }
