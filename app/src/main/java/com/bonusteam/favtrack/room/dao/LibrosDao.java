@@ -2,6 +2,7 @@ package com.bonusteam.favtrack.room.dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
@@ -21,4 +22,7 @@ public interface LibrosDao {
 
     @Query("SELECT * FROM LibrosEntity WHERE id =:id")
     LiveData<List<LibrosEntity>> getLibrosById(String id);
+
+    @Delete
+    void deleteLibros(LibrosEntity libro);
 }
