@@ -58,7 +58,7 @@ public class NetworkDataSource {
     public void fetchDiets() {
         mExecutors.networkIO().execute(()->{
             try{
-                Call<List<Dieta>> dietas = NetworkUtils.getClientInstanceAuth();
+                Call<List<Dieta>> dietas = NetworkUtils.getClientInstanceAuth().getDiets();
 
                 dietas.enqueue(new Callback<List<Dieta>>() {
                     @Override
@@ -89,7 +89,7 @@ public class NetworkDataSource {
         mExecutors.networkIO().execute(()->{
             try{
                 //Falta ruta a la api
-                Call<List<Rutina>> rutinas = NetworkUtils.getClientInstanceAuth();
+                Call<List<Rutina>> rutinas = NetworkUtils.getClientInstanceAuth().getRutinas();
 
                 rutinas.enqueue(new Callback<List<Rutina>>() {
                     @Override
