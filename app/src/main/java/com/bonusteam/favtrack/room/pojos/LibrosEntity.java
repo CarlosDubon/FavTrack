@@ -29,6 +29,8 @@ public class LibrosEntity {
 
     private int favorite = 0;
 
+    private int visto;
+
     public LibrosEntity(@NonNull String idLibro, String nombre, String descripcion, String genero, String autor, String editorial, String anio, String avatar, int favorite) {
         this.idLibro = idLibro;
         this.nombre = nombre;
@@ -112,5 +114,13 @@ public class LibrosEntity {
 
     public void setFavorite(int favorite) {
         this.favorite = favorite;
+    }
+
+    public int getVisto() {
+        return visto;
+    }
+
+    public void setVisto(int visto) {
+        this.visto = visto;
     }
 }
