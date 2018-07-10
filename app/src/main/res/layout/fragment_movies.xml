@@ -6,6 +6,5 @@
     tools:context=".fragments.MoviesFragment"
     android:background="@android:color/holo_green_dark">
 
-
-
+    <include layout="@layout/recycler_view"/>
 </FrameLayout>

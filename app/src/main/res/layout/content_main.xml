@@ -9,4 +9,6 @@
     tools:showIn="@layout/app_bar_main"
     android:id="@+id/container">
 
+    <include layout="@layout/recycler_view"/>
+
 </android.support.constraint.ConstraintLayout>
