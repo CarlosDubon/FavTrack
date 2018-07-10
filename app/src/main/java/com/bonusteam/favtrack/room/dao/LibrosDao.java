@@ -7,13 +7,12 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.bonusteam.favtrack.room.POJOS.LibrosEntity;
+import com.bonusteam.favtrack.room.pojos.LibrosEntity;
 
 import java.util.List;
 
 @Dao
 public interface LibrosDao {
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertLibros(LibrosEntity libros);
 
@@ -23,6 +22,4 @@ public interface LibrosDao {
     @Query("SELECT * FROM LibrosEntity WHERE id =:id")
     LiveData<List<LibrosEntity>> getLibrosById(String id);
 
-    @Delete
-    void deleteLibros(LibrosEntity libro);
 }
