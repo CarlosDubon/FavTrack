@@ -58,7 +58,8 @@ public class DietasRepositorio {
 
     private void startFetchDietService() {
         //Aqui se llamaría al servicio
-        networkDataSource.fetchDiets();
+        //networkDataSource.fetchDiets();
+
     }
 
     private synchronized void initializeData() {

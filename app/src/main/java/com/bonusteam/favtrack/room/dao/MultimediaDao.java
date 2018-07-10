@@ -17,7 +17,7 @@ public interface MultimediaDao {
      * Insersion de multimedia
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertMultimedia(Multimedia multimedia);
+    void insertMultimedia(List<Multimedia> multimedia);
 
     /**
      * Obtencion de todos los registros pertenecientes a multimedia
@@ -39,4 +39,7 @@ public interface MultimediaDao {
      */
     @Query("SELECT * FROM multimedia_table WHERE read == 1")
     LiveData<List<Multimedia>> getMultimediaRead();
+
+    @Query("DELETE FROM multimedia_table")
+    void deleteAll();
 }

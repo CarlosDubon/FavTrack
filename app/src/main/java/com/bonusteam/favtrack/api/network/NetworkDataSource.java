@@ -3,10 +3,10 @@ package com.bonusteam.favtrack.api.network;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import com.bonusteam.favtrack.room.pojos.Dieta;
+import com.bonusteam.favtrack.room.pojos.Multimedia;
 import com.bonusteam.favtrack.room.pojos.Rutina;
 
 import java.util.List;
@@ -25,6 +25,7 @@ public class NetworkDataSource {
     private static NetworkDataSource sInstance;
     private final MutableLiveData<List<Dieta>> dietasDataUpdate;
     private final MutableLiveData<List<Rutina>> rutinasDataUpdate;
+    private final MutableLiveData<List<Multimedia>> mediaDataUpdate;
     private final Context mContext;
     private final AppExecutors mExecutors;
 
@@ -32,6 +33,7 @@ public class NetworkDataSource {
         mContext = context;
         mExecutors = executors;
         dietasDataUpdate = new MutableLiveData<List<Dieta>>();
+        mediaDataUpdate = new MutableLiveData<List<Multimedia>>();
         rutinasDataUpdate = new MutableLiveData<List<Rutina>>();
     }
 
@@ -54,8 +56,10 @@ public class NetworkDataSource {
         return rutinasDataUpdate;
     }
 
+    public LiveData<List<Multimedia>> getMediaInfo(){ return mediaDataUpdate; }
 
-    public void fetchDiets() {
+
+    /*public void fetchDiets() {
         mExecutors.networkIO().execute(()->{
             try{
                 Call<List<Dieta>> dietas = NetworkUtils.getClientInstanceAuth().getDiets();
@@ -79,13 +83,13 @@ public class NetworkDataSource {
 
             }
         });
-    }
+    }*/
 
     /**
      *
      *
      */
-    public void fetchRutinas() {
+    /*public void fetchRutinas() {
         mExecutors.networkIO().execute(()->{
             try{
                 //Falta ruta a la api
@@ -103,6 +107,32 @@ public class NetworkDataSource {
                     @Override
                     public void onFailure(retrofit2.Call<List<Rutina>> call, Throwable t) {
 
+                    }
+                });
+
+            } catch (Exception e) {
+
+            }
+        });
+    }*/
+
+        public void fetchMediaInfo() {
+        mExecutors.networkIO().execute(()->{
+            try{
+                Call<List<Multimedia>> mediaInfo = NetworkUtils.getClientInstanceAuth().getAllMediaInfo();
+
+                mediaInfo.enqueue(new Callback<List<Multimedia>>() {
+                    @Override
+                    public void onResponse(retrofit2.Call<List<Multimedia>> call,
+                                           Response<List<Multimedia>> response) {
+                        if (response.isSuccessful()) {
+                            List<Multimedia> allMedia = response.body();
+                            mediaDataUpdate.postValue(allMedia);
+                        }
+                    }
+                    @Override
+                    public void onFailure(retrofit2.Call<List<Multimedia>> call, Throwable t) {
+                        t.printStackTrace();
                     }
                 });
 
