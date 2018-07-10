@@ -27,9 +27,7 @@ public class DietasRepositorio {
     private boolean mInitialized = false;
     Context context;
 
-    private DietasRepositorio (DietaDao dietaDao,
-                               NetworkDataSource networkDataSource,
-                               AppExecutors executors, Context context) {
+    private DietasRepositorio (DietaDao dietaDao, NetworkDataSource networkDataSource, AppExecutors executors, Context context) {
         this.context = context;
         //AppDatabase appDatabase = AppDatabase.getDatabaseInstance(context);
         this.dietaDao = dietaDao;
@@ -39,7 +37,6 @@ public class DietasRepositorio {
         networkData.observeForever(newListFromApi->{
             executors.diskIO().execute(()->{
                 //appDatabase.DietaDao().insertDieta(newListFromApi);
-
             });
         });
     }
@@ -77,4 +74,7 @@ public class DietasRepositorio {
         initializeData();
         return dietaDao.obtenerDietas();
     }
+
+
+
 }

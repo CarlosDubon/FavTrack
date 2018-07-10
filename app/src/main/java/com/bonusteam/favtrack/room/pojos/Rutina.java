@@ -27,12 +27,14 @@ public class Rutina {
 
     private int isRead;
 
-    public Rutina(@NonNull String id, String titulo, String descripcion, String tiempo, String avatar) {
+    public Rutina(@NonNull String id, String titulo, String descripcion, String tiempo, String avatar,int isFavorite,int isRead) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.tiempo = tiempo;
         this.avatar = avatar;
+        this.isFavorite = isFavorite;
+        this.isRead = isRead;
     }
 
 

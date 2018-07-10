@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="#1976D2"
     tools:openDrawer="start">
 
     <include
@@ -19,6 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="@color/menu_color"
         app:headerLayout="@layout/nav_header_main"
         >
     <ExpandableListView
@@ -27,7 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/nav_header_height"
         android:background="@android:color/transparent"
-        android:groupIndicator="@null" />
+        android:groupIndicator="@null"
+        android:divider="@color/menu_color"
+        />
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

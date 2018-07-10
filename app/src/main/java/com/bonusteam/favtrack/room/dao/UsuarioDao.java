@@ -1,5 +1,6 @@
 package com.bonusteam.favtrack.room.dao;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -16,7 +17,7 @@ import com.bonusteam.favtrack.room.pojos.Usuario;
 public interface UsuarioDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertUsuario(Usuario... usuario);
+    void insertUsuario(Usuario usuario);
 
     @Update
     void updateUsuario(Usuario usuarios);
@@ -25,5 +26,5 @@ public interface UsuarioDao {
     void deleteUsuario(Usuario... usuarios);
 
     @Query("SELECT * FROM usuario_table")
-    Usuario obtenerUsuario();
+    LiveData<Usuario> obtenerUsuario();
 }
