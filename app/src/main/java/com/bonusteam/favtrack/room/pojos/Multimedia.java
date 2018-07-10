@@ -6,6 +6,9 @@ import android.arch.persistence.room.Ignore;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Entidad Multimedia
+ */
 @Entity(tableName = "multimedia_table")
 public class Multimedia {
     @ColumnInfo(name = "id")
@@ -40,15 +43,14 @@ public class Multimedia {
     @ColumnInfo(name = "avatar")
     private String avatar;
 
-    @Ignore
-    private boolean isFavorite=false;
-    @Ignore
-    private boolean isRead = false;
+    private int isFavorite = 0;
+
+    private int isRead = 0;
 
     public Multimedia() {
     }
 
-    public Multimedia(String id, String name, String description, String idGenero, String idDirector, String anio, String id_multimedia_type, String avatar, boolean isFavorite, boolean isRead) {
+    public Multimedia(String id, String name, String description, String idGenero, String idDirector, String anio, String id_multimedia_type, String avatar, int isFavorite, int isRead) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -125,19 +127,19 @@ public class Multimedia {
         this.avatar = avatar;
     }
 
-    public boolean isFavorite() {
+    public int getIsFavorite() {
         return isFavorite;
     }
 
-    public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
+    public void setIsFavorite(int isFavorite) {
+        this.isFavorite = isFavorite;
     }
 
-    public boolean isRead() {
+    public int getIsRead() {
         return isRead;
     }
 
-    public void setRead(boolean read) {
-        isRead = read;
+    public void setIsRead(int isRead) {
+        this.isRead = isRead;
     }
 }
