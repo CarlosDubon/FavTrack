@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.bonusteam.favtrack.R;
-//import com.bonusteam.favtrack.utilities.SharedPreference;
+import com.bonusteam.favtrack.utilities.SharedPreference;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -52,11 +52,12 @@ public class FavTrack extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fav_track);
 
-        /*SharedPreference.init(getApplicationContext());
+        SharedPreference.init(getApplicationContext());
         if(SharedPreference.checkLogin()){
             finishAffinity();
             Log.d(TAG, "onCreate: No login");
-        }*/
+        }
+
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
