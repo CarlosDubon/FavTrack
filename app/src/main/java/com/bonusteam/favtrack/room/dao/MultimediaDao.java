@@ -30,13 +30,13 @@ public interface MultimediaDao {
      * Obtencion de todos los registros favoritos
      * @return lista de favoritos
      */
-    @Query("SELECT * FROM multimedia_table WHERE isFavorite == 1")
+    @Query("SELECT * FROM multimedia_table WHERE favorite == 1")
     LiveData<List<Multimedia>> getMultimediaFavotites();
 
     /**
      * Obtencion de los registros marcados como leidos
      * @return lista de multimedia leida
      */
-    @Query("SELECT * FROM multimedia_table WHERE isRead == 1")
+    @Query("SELECT * FROM multimedia_table WHERE read == 1")
     LiveData<List<Multimedia>> getMultimediaRead();
 }
