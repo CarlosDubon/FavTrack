@@ -7,6 +7,7 @@ import android.util.Log;
 import com.bonusteam.favtrack.api.network.AppExecutors;
 import com.bonusteam.favtrack.api.network.NetworkDataSource;
 import com.bonusteam.favtrack.room.dao.DietaDao;
+import com.bonusteam.favtrack.room.db.FavTrackerDataBase;
 import com.bonusteam.favtrack.room.pojos.Dieta;
 
 import java.util.List;
@@ -27,28 +28,28 @@ public class DietasRepositorio {
     private boolean mInitialized = false;
     Context context;
 
-    private DietasRepositorio (DietaDao dietaDao, NetworkDataSource networkDataSource, AppExecutors executors, Context context) {
-        this.context = context;
-        //AppDatabase appDatabase = AppDatabase.getDatabaseInstance(context);
+    private DietasRepositorio (DietaDao dietaDao, NetworkDataSource networkDataSource, AppExecutors executors) {
+
+        FavTrackerDataBase favTrackerDataBase = FavTrackerDataBase.getDatabase(context);
         this.dietaDao = dietaDao;
         this.networkDataSource = networkDataSource;
         this.appExecutors = executors;
         LiveData<List<Dieta>> networkData = networkDataSource.getCurrentDiets();
         networkData.observeForever(newListFromApi->{
             executors.diskIO().execute(()->{
-                appDatabase.DietaDao().insertDieta(newListFromApi);
+                favTrackerDataBase.dietaDao().insertDieta(newListFromApi);
             });
         });
     }
 
     public synchronized static DietasRepositorio getInstance(
             DietaDao dietaDao, NetworkDataSource networkDataSource,
-            AppExecutors executors, Context context, String gameName, int i) {
+            AppExecutors executors) {
         Log.d(LOG_TAG, "Getting the repository");
         if (sInstance == null) {
             synchronized (LOCK) {
                 sInstance = new DietasRepositorio(dietaDao, networkDataSource,
-                        executors, context);
+                        executors);
                 Log.d(LOG_TAG, "Made new repository");
             }
         }
@@ -57,7 +58,8 @@ public class DietasRepositorio {
 
     private void startFetchDietService() {
         //Aqui se llamaría al servicio
-        networkDataSource.fetchDiets();
+        //networkDataSource.fetchDiets();
+
     }
 
     private synchronized void initializeData() {

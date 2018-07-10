@@ -7,4 +7,5 @@
     android:background="@android:color/holo_purple">
 
 
+    <include layout="@layout/recycler_view"/>
 </FrameLayout>

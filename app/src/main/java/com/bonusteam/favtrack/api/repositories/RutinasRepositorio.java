@@ -7,6 +7,7 @@ import android.util.Log;
 import com.bonusteam.favtrack.api.network.AppExecutors;
 import com.bonusteam.favtrack.api.network.NetworkDataSource;
 import com.bonusteam.favtrack.room.dao.RutinaDao;
+import com.bonusteam.favtrack.room.db.FavTrackerDataBase;
 import com.bonusteam.favtrack.room.pojos.Rutina;
 
 import java.util.List;
@@ -27,28 +28,27 @@ public class RutinasRepositorio {
     private boolean mInitialized = false;
     Context context;
 
-    private RutinasRepositorio (RutinaDao rutinaDao, NetworkDataSource networkDataSource, AppExecutors executors, Context context) {
-        this.context = context;
-        //AppDatabase appDatabase = AppDatabase.getDatabaseInstance(context);
+    private RutinasRepositorio (RutinaDao rutinaDao, NetworkDataSource networkDataSource, AppExecutors executors) {
+        FavTrackerDataBase favTrackerDataBase = FavTrackerDataBase.getDatabase(context);
         this.rutinaDao = rutinaDao;
         this.networkDataSource = networkDataSource;
         this.appExecutors = executors;
         LiveData<List<Rutina>> networkData = networkDataSource.getCurrentRutinas();
         networkData.observeForever(newListFromApi->{
             executors.diskIO().execute(()->{
-                appDatabase.RutinaDao().insertRutina(newListFromApi);
+                favTrackerDataBase.rutinaDaoDao().insertRutina(newListFromApi);
             });
         });
     }
 
     public synchronized static RutinasRepositorio getInstance(
             RutinaDao rutinaDao, NetworkDataSource networkDataSource,
-            AppExecutors executors, Context context, String gameName, int i) {
+            AppExecutors executors) {
         //Log.d(LOG_TAG, "Getting the repository");
         if (sInstance == null) {
             synchronized (LOCK) {
                 sInstance = new RutinasRepositorio(rutinaDao, networkDataSource,
-                        executors, context);
+                        executors);
                 //Log.d(LOG_TAG, "Made new repository");
             }
         }

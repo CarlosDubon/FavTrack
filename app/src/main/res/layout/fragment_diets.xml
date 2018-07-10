@@ -6,5 +6,6 @@
     tools:context=".fragments.DietsFragment"
     android:background="@android:color/black">
 
+    <include layout="@layout/recycler_view"/>
 
 </FrameLayout>

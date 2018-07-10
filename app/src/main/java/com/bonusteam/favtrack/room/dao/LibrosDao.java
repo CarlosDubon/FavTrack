@@ -37,4 +37,6 @@ public interface LibrosDao {
     @Delete
     void deleteLibros(LibrosEntity libro);
 
+    @Query("DELETE FROM librosentity")
+    void deleteAll();
 }

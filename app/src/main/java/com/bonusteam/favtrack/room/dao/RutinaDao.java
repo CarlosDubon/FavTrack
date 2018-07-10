@@ -20,7 +20,7 @@ import java.util.List;
 public interface RutinaDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertRutina(Rutina... rutinas);
+    void insertRutina(List<Rutina> rutinas);
 
     @Update
     void updateRutina(Rutina rutina);
@@ -33,4 +33,7 @@ public interface RutinaDao {
 
     @Query("SELECT * FROM rutina_table WHERE isFavorite=1")
     LiveData<List<Rutina>> obtenerRutinasFavoritas();
+
+    @Query("DELETE FROM rutina_table")
+    void deleteAll();
 }
