@@ -8,6 +8,8 @@ import android.arch.persistence.room.Query;
 
 import com.bonusteam.favtrack.room.pojos.Multimedia;
 
+import java.util.List;
+
 @Dao
 public interface MultimediaDao {
 
@@ -22,5 +24,19 @@ public interface MultimediaDao {
      * @return lista de objeto multimedia
      */
     @Query("SELECT * FROM multimedia_table")
-    LiveData<Multimedia> getAllMultimedia();
+    LiveData<List<Multimedia>> getAllMultimedia();
+
+    /**
+     * Obtencion de todos los registros favoritos
+     * @return lista de favoritos
+     */
+    @Query("SELECT * FROM multimedia_table WHERE isFavorite == 1")
+    LiveData<List<Multimedia>> getMultimediaFavotites();
+
+    /**
+     * Obtencion de los registros marcados como leidos
+     * @return lista de multimedia leida
+     */
+    @Query("SELECT * FROM multimedia_table WHERE isRead == 1")
+    LiveData<List<Multimedia>> getMultimediaRead();
 }
