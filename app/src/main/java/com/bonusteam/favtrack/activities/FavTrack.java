@@ -103,6 +103,8 @@ public class FavTrack extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            SharedPreference.logOutUser();
+            finish();
             return true;
         }
 
