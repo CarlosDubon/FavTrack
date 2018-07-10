@@ -13,7 +13,6 @@ import java.util.List;
 
 @Dao
 public interface LibrosDao {
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertLibros(LibrosEntity libros);
 
@@ -32,6 +31,4 @@ public interface LibrosDao {
     @Query("UPDATE LibrosEntity SET favorite =:fav WHERE id=:idLibros")
     void updateFavoriteLibros(int fav, String idLibros);
 
-    @Delete
-    void deleteLibros(LibrosEntity libro);
 }
