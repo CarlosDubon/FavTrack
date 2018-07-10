@@ -105,4 +105,12 @@ public class LibrosEntity {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+    public int getFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(int favorite) {
+        this.favorite = favorite;
+    }
 }

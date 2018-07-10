@@ -20,6 +20,15 @@ public interface LibrosDao {
     LiveData<List<LibrosEntity>> getAllLibros();
 
     @Query("SELECT * FROM LibrosEntity WHERE id =:id")
-    LiveData<List<LibrosEntity>> getLibrosById(String id);
+    LiveData<LibrosEntity> getLibroById(String id);
+
+    @Query("SELECT favorite FROM LibrosEntity WHERE id=:idLibro")
+    LiveData<Integer> isFavorite(String idLibro);
+
+    @Query("SELECT * FROM LibrosEntity WHERE favorite = 1")
+    LiveData<List<LibrosEntity>> getFavLibros();
+
+    @Query("UPDATE LibrosEntity SET favorite =:fav WHERE id=:idLibros")
+    void updateFavoriteLibros(int fav, String idLibros);
 
 }
