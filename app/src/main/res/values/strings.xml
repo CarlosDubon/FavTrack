@@ -1,22 +1,24 @@
 <resources>
-    <string name="app_name">Kenary</string>
-    <string name="title_home">Home</string>
-    <string name="title_calendar">Calendar</string>
-    <string name="title_messages">Messages</string>
-    <string name="title_profile">Profile</string>
-    <string name="title_class">Classroom</string>
-    <string name="title_tuto">Tutorias</string>
-    <string name="tuto_fecha">Date</string>
-    <string name="tuto_hora">Hora</string>
-    <string name="tuto_lugar">Lugar</string>
-    <string name="Subscribe">Subscribe</string>
-    <string name="query_hint">Search for classrooms...</string>
-    <string name="tutor">Tutor</string>
-    <string name="information">Information</string>
-    <string name="cat_class">Classroom category</string>
-    <string name="tuto_class">Tutoria category</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="saved_token">token</string>
+    <string name="app_name">Fav Track</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="salud">Salud</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rutines_menu_title">Rutines</string>
+    <string name="health_menu_title">Health</string>
+    <string name="diets_menu_title">Diets</string>
+    <string name="entertainment_menu_title">Entertainment</string>
+    <string name="books_menu_title">Books</string>
+    <string name="series_menu_title">Series</string>
+    <string name="movies_menu_title">Movies</string>
+    <string name="settings_menu_title">Settings</string>
+    <string name="logout_menu_title">Log Out</string>
+    <string name="item_titulo">Titulo</string>
 </resources>

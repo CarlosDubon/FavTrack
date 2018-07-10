@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="40dp"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_avatar_config"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/avatar_general"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/id__new_avatar_config"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/id_avatar_config"
+            android:layout_alignBottom="@id/id_avatar_config"
+            app:fabSize="mini"
+            android:src="@drawable/ic_edit_black_24dp"
+            />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/id_user_config"
+        android:layout_width="match_parent"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:hint="username"
+        />
+    <EditText
+        android:id="@+id/id_pass_config"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:hint="password"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        android:inputType="textPassword" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="2dp"
+        android:background="#000000"
+        />
+    <Button
+        android:id="@+id/id_btn_config"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:text="OK"
+        />
+
+</LinearLayout>
