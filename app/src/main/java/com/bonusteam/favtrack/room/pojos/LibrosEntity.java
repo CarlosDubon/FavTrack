@@ -10,7 +10,7 @@ public class LibrosEntity {
 
     @NonNull
     @PrimaryKey
-    @ColumnInfo(name = "id_Libro")
+    @ColumnInfo(name = "id")
     private String idLibro;
 
     private String descripcion;

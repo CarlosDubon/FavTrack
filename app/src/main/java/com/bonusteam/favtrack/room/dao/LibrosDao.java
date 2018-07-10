@@ -1,4 +1,4 @@
-package com.bonusteam.favtrack.room.DAO;
+package com.bonusteam.favtrack.room.dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -19,6 +19,6 @@ public interface LibrosDao {
     @Query("SELECT * FROM LibrosEntity")
     LiveData<List<LibrosEntity>> getAllLibros();
 
-    @Query("SELECT * FROM LibrosEntity WHERE id_Libro =:id")
+    @Query("SELECT * FROM LibrosEntity WHERE id =:id")
     LiveData<List<LibrosEntity>> getLibrosById(String id);
 }
