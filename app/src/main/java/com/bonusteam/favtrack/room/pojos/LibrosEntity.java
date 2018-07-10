@@ -27,9 +27,9 @@ public class LibrosEntity {
 
     private String avatar;
 
-    private int isFavorite=0;
+    private int favorite =0;
 
-    public LibrosEntity(@NonNull String idLibro, String nombre, String descripcion, String genero, String autor, String editorial, String anio, String avatar, int isFavorite) {
+    public LibrosEntity(@NonNull String idLibro, String nombre, String descripcion, String genero, String autor, String editorial, String anio, String avatar, int favorite) {
         this.idLibro = idLibro;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -38,7 +38,7 @@ public class LibrosEntity {
         this.editorial = editorial;
         this.anio = anio;
         this.avatar = avatar;
-        this.isFavorite = isFavorite;
+        this.favorite = favorite;
     }
 
     public String getNombre() {

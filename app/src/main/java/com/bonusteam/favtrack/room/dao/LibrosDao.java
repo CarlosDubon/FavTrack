@@ -31,4 +31,7 @@ public interface LibrosDao {
     @Query("UPDATE LibrosEntity SET favorite =:fav WHERE id=:idLibros")
     void updateFavoriteLibros(int fav, String idLibros);
 
+    @Delete
+    void deleteLibros(LibrosEntity libro);
+
 }
