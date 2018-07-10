@@ -17,7 +17,7 @@ public interface MultimediaDao {
      * Insersion de multimedia
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertMultimedia();
+    void insertMultimedia(Multimedia multimedia);
 
     /**
      * Obtencion de todos los registros pertenecientes a multimedia
