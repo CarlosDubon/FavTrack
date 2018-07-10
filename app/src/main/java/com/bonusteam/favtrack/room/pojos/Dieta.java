@@ -24,11 +24,13 @@ public class Dieta {
 
     private int isRead;
 
-    public Dieta(@NonNull String id, String titulo, String descripcion, String avatar) {
+    public Dieta(@NonNull String id, String titulo, String descripcion, String avatar,int isFavorite,int isRead) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.avatar = avatar;
+        this.isFavorite = isFavorite;
+        this.isRead = isRead;
     }
 
     @NonNull
