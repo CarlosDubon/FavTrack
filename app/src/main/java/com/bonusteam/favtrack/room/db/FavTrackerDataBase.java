@@ -34,19 +34,29 @@ public abstract class FavTrackerDataBase extends RoomDatabase{
             synchronized (FavTrackerDataBase.class){
                 if(INSTANCE==null){
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),FavTrackerDataBase.class,"fav_tracker_db")
-                        .addCallback(addMultimediaCallBack)
-                        .build();
+                            .addCallback(addMultimediaCallBack)
+                            .addCallback(addDefautltUserCallback)
+                            .addCallback(addDefautltLibrosCallback)
+                            .build();
                 }
             }
         }
         return INSTANCE;
     }
 
-    private static RoomDatabase.Callback addDefautltUser = new RoomDatabase.Callback(){
+    private static RoomDatabase.Callback addDefautltLibrosCallback = new RoomDatabase.Callback(){
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db){
             super.onOpen(db);
-            //new addMultimediaDefault(INSTANCE).execute();
+            new addLibrosDefault(INSTANCE).execute();
+        }
+    };
+
+    private static RoomDatabase.Callback addDefautltUserCallback = new RoomDatabase.Callback(){
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db){
+            super.onOpen(db);
+            new addDefaultUser(INSTANCE).execute();
         }
     };
 
@@ -100,5 +110,24 @@ public abstract class FavTrackerDataBase extends RoomDatabase{
             return null;
         }
     }
+
+    private static class addLibrosDefault extends AsyncTask<Void,Void,Void>{
+        private LibrosDao librosDao;
+
+        public addLibrosDefault(FavTrackerDataBase db){
+            librosDao = db.librosDao();
+        }
+
+        /**
+         * Meotodo para agregar informacion predeterminada
+         * @param params
+         * @return
+         */
+        @Override
+        protected Void doInBackground(Void... params) {
+            return null;
+        }
+    }
+
 
 }
