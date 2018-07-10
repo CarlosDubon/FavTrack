@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Constraint_Layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
     android:animateLayoutChanges="true"
 
     tools:context=".activities.FavTrack">
@@ -28,9 +28,6 @@
             android:scaleType="fitCenter"
             android:src="@drawable/avatar_general" />
 
-
-
-
         <RelativeLayout
             android:id="@+id/layout1"
             android:layout_width="wrap_content"
@@ -49,9 +46,6 @@
                 android:text="Login"
                 android:textColor="@color/colorPrimaryDark" />
 
-
-
-
             <LinearLayout
                 android:id="@+id/linlay1"
                 android:layout_width="match_parent"
@@ -60,16 +54,10 @@
                 android:layout_alignTop="@+id/tv_login"
                 android:orientation="vertical">
 
-
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
-
-
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/user"
@@ -94,16 +82,11 @@
 
                 </LinearLayout>
 
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:orientation="vertical">
-
-
-
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/pass"
@@ -130,20 +113,23 @@
 
             </LinearLayout>
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/id_btn_access_login"
+            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                android:id="@+id/btnLogin"
                 android:layout_width="183dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/linlay1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_shape"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:paddingLeft="70dp"
-                android:paddingRight="70dp"
+                android:layout_below="@+id/linlay1"
                 android:text="Login"
-                android:textAllCaps="false" />
-
-
-
+                app:spinning_bar_color="#fff"
+                app:spinning_bar_padding="8dp"
+                app:spinning_bar_width="4dp"/>
 
         </RelativeLayout>
 
