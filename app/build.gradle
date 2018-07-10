@@ -17,8 +17,8 @@ android {
         }
     }
     compileOptions {
+        targCompatibility 1.8
         sourceCompatibility 1.8
-        targetCompatibility 1.8
     }
 }
 
@@ -59,6 +59,4 @@ dependencies {
 
     //circleImageView
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-    //LoadingButton
-    implementation 'br.com.simplepass:loading-button-android:1.7.2'
 }
