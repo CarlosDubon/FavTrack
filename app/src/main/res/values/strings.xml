@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Fav Track</string>
+    <string name="item_titulo">Titulo</string>
 </resources>
