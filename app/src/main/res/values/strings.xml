@@ -20,5 +20,7 @@
     <string name="movies_menu_title">Movies</string>
     <string name="settings_menu_title">Settings</string>
     <string name="logout_menu_title">Log Out</string>
-    <string name="item_titulo">Titulo</string>
+    <string name="item_titulo">Title</string>
+    <string name="item_general">General</string>
+    <string name="item_favorites">Favorites</string>
 </resources>

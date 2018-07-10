@@ -39,7 +39,7 @@
                 app:layout_constraintGuide_percent="0.65" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/title_item"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -63,7 +63,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/fav_imageView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginBottom="8dp"
@@ -77,7 +77,7 @@
                 android:background="@drawable/ic_star_border_black_24dp" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/seen_imageview"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginBottom="8dp"
@@ -85,10 +85,10 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintEnd_toStartOf="@+id/fav_imageView"
+                app:layout_constraintStart_toEndOf="@+id/title_item"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_visibility_off_black_24dp" />
+                android:background="@drawable/ic_visibility_off_black_24dp" />
 
 
         </android.support.constraint.ConstraintLayout>
