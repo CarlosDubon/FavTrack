@@ -27,7 +27,9 @@ public class DietasRepositorio {
     private boolean mInitialized = false;
     Context context;
 
-    private DietasRepositorio (DietaDao dietaDao, NetworkDataSource networkDataSource, AppExecutors executors, Context context) {
+    private DietasRepositorio (DietaDao dietaDao,
+                               NetworkDataSource networkDataSource,
+                               AppExecutors executors, Context context) {
         this.context = context;
         //AppDatabase appDatabase = AppDatabase.getDatabaseInstance(context);
         this.dietaDao = dietaDao;
@@ -36,7 +38,8 @@ public class DietasRepositorio {
         LiveData<List<Dieta>> networkData = networkDataSource.getCurrentDiets();
         networkData.observeForever(newListFromApi->{
             executors.diskIO().execute(()->{
-                appDatabase.DietaDao().insertDieta(newListFromApi);
+                //appDatabase.DietaDao().insertDieta(newListFromApi);
+
             });
         });
     }
@@ -57,7 +60,8 @@ public class DietasRepositorio {
 
     private void startFetchDietService() {
         //Aqui se llamaría al servicio
-        networkDataSource.fetchDiets();
+        //networkDataSource.fetchDiets();
+
     }
 
     private synchronized void initializeData() {
@@ -73,7 +77,4 @@ public class DietasRepositorio {
         initializeData();
         return dietaDao.obtenerDietas();
     }
-
-
-
 }

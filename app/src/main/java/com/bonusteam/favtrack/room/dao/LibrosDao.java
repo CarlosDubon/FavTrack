@@ -22,4 +22,6 @@ public interface LibrosDao {
     @Query("SELECT * FROM LibrosEntity WHERE id =:id")
     LiveData<List<LibrosEntity>> getLibrosById(String id);
 
+    @Query("DELETE FROM librosentity")
+    void deleteAll();
 }

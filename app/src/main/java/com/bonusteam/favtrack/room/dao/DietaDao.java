@@ -33,4 +33,7 @@ public interface DietaDao {
     @Query("SELECT * FROM dieta_table WHERE isFavorite=1")
     LiveData<List<Dieta>> obtenerDietasFavoritas();
 
+
+    @Query("DELETE FROM dieta_table")
+    void deleteAll();
 }
