@@ -20,13 +20,13 @@ import java.util.List;
 public interface RutinaDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertRutina(Dieta... dietas);
+    void insertRutina(Rutina... rutinas);
 
     @Update
-    void updateRutina(Dieta dieta);
+    void updateRutina(Rutina rutina);
 
     @Delete
-    void deleteRutina(Dieta... dietas);
+    void deleteRutina(Rutina... rutinas);
 
     @Query("SELECT * FROM rutina_table")
     LiveData<List<Rutina>> obtenerRutinas();
