@@ -43,8 +43,10 @@ public class Multimedia {
     @ColumnInfo(name = "avatar")
     private String avatar;
 
+    @ColumnInfo(name = "favorite")
     private int isFavorite = 0;
 
+    @ColumnInfo(name = "read")
     private int isRead = 0;
 
     public Multimedia() {
