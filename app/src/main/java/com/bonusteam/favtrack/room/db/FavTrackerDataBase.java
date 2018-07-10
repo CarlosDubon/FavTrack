@@ -42,6 +42,14 @@ public abstract class FavTrackerDataBase extends RoomDatabase{
         return INSTANCE;
     }
 
+    private static RoomDatabase.Callback addDefautltUser = new RoomDatabase.Callback(){
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db){
+            super.onOpen(db);
+            //new addMultimediaDefault(INSTANCE).execute();
+        }
+    };
+
     private static RoomDatabase.Callback addMultimediaCallBack = new RoomDatabase.Callback(){
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db){
@@ -50,15 +58,32 @@ public abstract class FavTrackerDataBase extends RoomDatabase{
         }
     };
 
-    private static class addMultimediaDefault extends AsyncTask<Multimedia,Void,Void>{
+    private static class addDefaultUser extends AsyncTask<Void,Void,Void>{
+        private UsuarioDao usuarioDao;
+        public addDefaultUser(FavTrackerDataBase db){
+            usuarioDao = db.usuarioDao();
+        }
+        @Override
+        protected Void doInBackground(Void... params) {
+            Usuario usuario = new Usuario("78", "Admin", "root", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmgT3-nqyMvbD4-JVpjIQZuYx18AfMSZA4CDmJUsA67ddKe1lmcA");
+            usuarioDao.insertUsuario(usuario);
+            return null;
+        }
+    }
+    private static class addMultimediaDefault extends AsyncTask<Void,Void,Void>{
         private MultimediaDao multimediaDao;
 
         public addMultimediaDefault(FavTrackerDataBase db){
             multimediaDao = db.multimediaDao();
         }
 
+        /**
+         * Meotodo para agregar informacion predeterminada
+         * @param params
+         * @return
+         */
         @Override
-        protected Void doInBackground(Multimedia... multimedia) {
+        protected Void doInBackground(Void... params) {
             Multimedia single = new Multimedia("1", "Avengers Infinity War" ,
                             "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and            existence itself has never been more uncertain.",
                     "Ciencia Ficcion", "Anthony Russo",
