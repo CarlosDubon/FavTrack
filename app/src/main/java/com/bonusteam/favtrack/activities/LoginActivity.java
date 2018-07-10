@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import com.bonusteam.favtrack.R;
+import com.bonusteam.favtrack.api.network.AppExecutors;
 import com.bonusteam.favtrack.api.network.NetworkUtils;
 import com.bonusteam.favtrack.utilities.SharedPreference;
 
@@ -37,7 +38,32 @@ public class LoginActivity extends AppCompatActivity {
         //Se inicializa la clase SharedPreference
         SharedPreference.init(getApplicationContext());
 
-        checkLogin();
+        btnLogin = findViewById(R.id.btnLogin);
+
+        btnLogin.setOnClickListener(v-> simulateLogin());
+        //checkLogin();
+    }
+
+    private void simulateLogin() {
+        txtUser = findViewById(R.id.id_edit_user_login);
+        txtPassword = findViewById(R.id.id_edit_pass_login);
+        btnLogin.startAnimation();
+        AppExecutors.getInstance().networkIO().execute(()->{
+            try {
+                Thread.sleep(3000);
+                SharedPreference.logInUser(txtUser.getText().toString(),
+                        txtPassword.getText().toString());
+                btnLogin.doneLoadingAnimation(Color.parseColor("#2BB29B")
+                        , BitmapFactory.decodeResource(getResources(), R.drawable.ic_done_white_48dp));
+                Intent intent = new Intent(getApplicationContext(), FavTrack.class);
+                startActivity(intent);
+                finish();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        btnLogin.doneLoadingAnimation(Color.parseColor("#B24419")
+                , BitmapFactory.decodeResource(getResources(), R.drawable.ic_done_white_48dp));
     }
 
     private void checkLogin() {
