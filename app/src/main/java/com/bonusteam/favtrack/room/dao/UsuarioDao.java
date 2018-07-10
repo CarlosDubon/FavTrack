@@ -17,7 +17,7 @@ import com.bonusteam.favtrack.room.pojos.Usuario;
 public interface UsuarioDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertUsuario(Usuario... usuario);
+    void insertUsuario(Usuario usuario);
 
     @Update
     void updateUsuario(Usuario usuarios);
