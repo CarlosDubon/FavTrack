@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import com.bonusteam.favtrack.room.dao.LibrosDao;
+import com.bonusteam.favtrack.room.db.FavTrackerDataBase;
 import com.bonusteam.favtrack.room.pojos.LibrosEntity;
 
 import java.util.List;
@@ -13,32 +14,32 @@ public class LibroRepository {
 
     private LibrosDao librosDao;
 
-    public LibroRepository(Application application){
-        //AppDataBase db = AppDataBase.getInstance(application);
-        //this.librosDao = db.librosDao;
+    public LibroRepository(Application application) {
+        FavTrackerDataBase db = FavTrackerDataBase.getDatabase(application);
+        this.librosDao = db.librosDao();
     }
 
-    public LiveData<List<LibrosEntity>> getAllLibros(){
+    public LiveData<List<LibrosEntity>> getAllLibros() {
         return librosDao.getAllLibros();
     }
 
-    public LiveData<LibrosEntity> getLibro(String id){
+    public LiveData<LibrosEntity> getLibro(String id) {
         return librosDao.getLibroById(id);
     }
 
-    public LiveData<Integer> isFavorite(String id){
-        return  librosDao.isFavorite(id);
+    public LiveData<Integer> isFavorite(String id) {
+        return librosDao.isFavorite(id);
     }
 
-    public LiveData<List<LibrosEntity>> getFavoritesLibros(){
+    public LiveData<List<LibrosEntity>> getFavoritesLibros() {
         return librosDao.getFavLibros();
     }
 
-    public void insertLibro(LibrosEntity libros){
+    public void insertLibro(LibrosEntity libros) {
         new insertLibroAsyncTask(librosDao).execute(libros);
     }
 
-    private class insertLibroAsyncTask extends AsyncTask<LibrosEntity, Void, Void>{
+    private class insertLibroAsyncTask extends AsyncTask<LibrosEntity, Void, Void> {
 
         private LibrosDao librosDao;
 
@@ -53,11 +54,11 @@ public class LibroRepository {
         }
     }
 
-    public void updateFavoritesLibros(int fav, String id){
+    public void updateFavoritesLibros(int fav, String id) {
         new updateFavoritesLibrosAsyncTask(librosDao, id).execute(fav);
     }
 
-    private class updateFavoritesLibrosAsyncTask extends AsyncTask<Integer, Void, Void>{
+    private class updateFavoritesLibrosAsyncTask extends AsyncTask<Integer, Void, Void> {
 
         private LibrosDao librosDao;
         private String id;
@@ -74,11 +75,11 @@ public class LibroRepository {
         }
     }
 
-    public void deleteLibros(LibrosEntity libro){
+    public void deleteLibros(LibrosEntity libro) {
         new deleteLibrosAsyncTask(librosDao).execute(libro);
     }
 
-    private class deleteLibrosAsyncTask extends AsyncTask<LibrosEntity, Void, Void>{
+    private class deleteLibrosAsyncTask extends AsyncTask<LibrosEntity, Void, Void> {
 
         private LibrosDao librosDao;
 

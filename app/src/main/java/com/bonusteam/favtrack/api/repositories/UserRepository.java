@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import com.bonusteam.favtrack.room.dao.UsuarioDao;
+import com.bonusteam.favtrack.room.db.FavTrackerDataBase;
 import com.bonusteam.favtrack.room.pojos.Usuario;
 
 import java.util.List;
@@ -13,20 +14,20 @@ public class UserRepository {
 
     private UsuarioDao usuarioDao;
 
-    public UserRepository(Application application){
-        //AppDataBase db = AppDataBase.getInstance(application);
-        //this.usuarioDao = db.usuarioDao;
+    public UserRepository(Application application) {
+        FavTrackerDataBase db = FavTrackerDataBase.getDatabase(application);
+        this.usuarioDao = db.usuarioDao();
     }
 
-    public LiveData<Usuario> getUser(){
+    public LiveData<Usuario> getUser() {
         return usuarioDao.obtenerUsuario();
     }
 
-    public void updateUser(Usuario usuario){
+    public void updateUser(Usuario usuario) {
         new updateUserAsyncTask(usuarioDao).execute(usuario);
     }
 
-    private class updateUserAsyncTask extends AsyncTask<Usuario, Void, Void>{
+    private class updateUserAsyncTask extends AsyncTask<Usuario, Void, Void> {
 
         private UsuarioDao usuarioDao;
 
@@ -41,11 +42,11 @@ public class UserRepository {
         }
     }
 
-    public void insertUser(Usuario... usuarios){
+    public void insertUser(Usuario... usuarios) {
         new insertUserAsyncTask(usuarioDao).execute(usuarios);
     }
 
-    private class insertUserAsyncTask extends AsyncTask<Usuario, Void, Void>{
+    private class insertUserAsyncTask extends AsyncTask<Usuario, Void, Void> {
 
         private UsuarioDao usuarioDao;
 
@@ -61,11 +62,11 @@ public class UserRepository {
         }
     }
 
-    public void deleteUser(Usuario... usuarios){
+    public void deleteUser(Usuario... usuarios) {
         new deleteUserAsyncTask(usuarioDao).execute(usuarios);
     }
 
-    private class deleteUserAsyncTask extends AsyncTask<Usuario, Void, Void>{
+    private class deleteUserAsyncTask extends AsyncTask<Usuario, Void, Void> {
 
         private UsuarioDao usuarioDao;
 
