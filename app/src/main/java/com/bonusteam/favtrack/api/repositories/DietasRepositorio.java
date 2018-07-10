@@ -36,7 +36,7 @@ public class DietasRepositorio {
         LiveData<List<Dieta>> networkData = networkDataSource.getCurrentDiets();
         networkData.observeForever(newListFromApi->{
             executors.diskIO().execute(()->{
-                appDatabase.DietaDao().insertDieta(newListFromApi);
+                //appDatabase.DietaDao().insertDieta(newListFromApi);
             });
         });
     }
