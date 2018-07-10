@@ -36,7 +36,7 @@ public class RutinasRepositorio {
         LiveData<List<Rutina>> networkData = networkDataSource.getCurrentRutinas();
         networkData.observeForever(newListFromApi->{
             executors.diskIO().execute(()->{
-                appDatabase.RutinaDao().insertRutina(newListFromApi);
+                //appDatabase.RutinaDao().insertRutina(newListFromApi);
             });
         });
     }
