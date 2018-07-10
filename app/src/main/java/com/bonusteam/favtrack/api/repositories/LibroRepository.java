@@ -31,6 +31,10 @@ public class LibroRepository {
         return librosDao.isFavorite(id);
     }
 
+    public LiveData<Integer> isVisto(String id){
+        return librosDao.isVisto(id);
+    }
+
     public LiveData<List<LibrosEntity>> getFavoritesLibros() {
         return librosDao.getFavLibros();
     }

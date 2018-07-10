@@ -35,6 +35,10 @@ public class LibrosViewModel extends AndroidViewModel {
         return libroRepository.getFavoritesLibros();
     }
 
+    public LiveData<Integer> isVisto(String id){
+        return libroRepository.
+    }
+
     public void insertLibro(LibrosEntity librosEntity) {
         libroRepository.insertLibro(librosEntity);
     }

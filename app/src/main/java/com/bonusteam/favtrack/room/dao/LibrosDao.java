@@ -25,6 +25,9 @@ public interface LibrosDao {
     @Query("SELECT favorite FROM LibrosEntity WHERE id=:idLibro")
     LiveData<Integer> isFavorite(String idLibro);
 
+    @Query("SELECT visto FROM LibrosEntity WHERE id=:idLibro")
+    LiveData<Integer> isVisto(String idLibro);
+
     @Query("SELECT * FROM LibrosEntity WHERE favorite = 1")
     LiveData<List<LibrosEntity>> getFavLibros();
 
