@@ -19,13 +19,13 @@ import java.util.List;
 public interface DietaDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertUsuario(Dieta... dietas);
+    void insertDieta(List<Dieta> dietas);
 
     @Update
-    void updateUsuario(Dieta dieta);
+    void updateDieta(Dieta dieta);
 
     @Delete
-    void deleteUsuario(Dieta... dietas);
+    void deleteDieta(Dieta... dietas);
 
     @Query("SELECT * FROM dieta_table")
     LiveData<List<Dieta>> obtenerDietas();
@@ -33,4 +33,7 @@ public interface DietaDao {
     @Query("SELECT * FROM dieta_table WHERE isFavorite=1")
     LiveData<List<Dieta>> obtenerDietasFavoritas();
 
+
+    @Query("DELETE FROM dieta_table")
+    void deleteAll();
 }
