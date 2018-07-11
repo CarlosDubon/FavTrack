@@ -20,7 +20,10 @@ import com.bonusteam.favtrack.room.pojos.Multimedia;
 import com.bonusteam.favtrack.room.pojos.Rutina;
 import com.bonusteam.favtrack.room.pojos.Usuario;
 
-@Database(entities = {Dieta.class, LibrosDao.class, Multimedia.class, Rutina.class, Usuario.class},version = 1)
+import java.util.ArrayList;
+import java.util.List;
+
+@Database(entities = {Dieta.class, LibrosEntity.class, Multimedia.class, Rutina.class, Usuario.class},version = 2)
 public abstract class FavTrackerDataBase extends RoomDatabase{
     public abstract DietaDao dietaDao();
     public abstract LibrosDao librosDao();
@@ -172,8 +175,11 @@ public abstract class FavTrackerDataBase extends RoomDatabase{
         protected Void doInBackground(Void... params) {
             Rutina rutina = new Rutina("15","Rutina de Brazos","Con esta rutina, se podra ejercitar diversos músculos del brazo de una manera equilibrada. Realizar al menos dos veces a la semana.","15 minutos", "https://www.totalfitness.es/blog/wp-content/uploads/DIA-01.jpg",0,0);
             Rutina rutina1 = new Rutina ("16","Rutina de Piernas","Esta rutina consiste en ejercitar las piernas de manera balanceada, para tonificar los musculos del area en cuestion. Se recomienda realizar esta rutina al menos dos veces a la semana. En conjunto con la rutina de brazos.", "10 minutos", "https://entrenar.me/blog/wp-content/uploads/2018/02/rutina-de-piernas-para-gym-lunge-bueno.jpg",0,0);
-            rutinaDao.insertRutina(rutina);
-            rutinaDao.insertRutina(rutina1);
+            List<Rutina> list = new ArrayList<>();
+            list.add(rutina);
+            list.add(rutina1);
+            rutinaDao.insertRutina(list);
+            //rutinaDao.insertRutina(rutina1);
             return null;
         }
     }

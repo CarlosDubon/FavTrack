@@ -57,7 +57,7 @@ public class UserRepository {
 
         @Override
         protected Void doInBackground(Usuario... usuarios) {
-            usuarioDao.insertUsuario(usuarios);
+            usuarioDao.insertUsuario(usuarios[0]);
             return null;
         }
     }

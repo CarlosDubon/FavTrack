@@ -20,17 +20,18 @@ public class Dieta {
 
     private String avatar;
 
-    private int isFavorite;
 
-    private int isRead;
+    private int favorite;
 
-    public Dieta(@NonNull String id, String titulo, String descripcion, String avatar,int isFavorite,int isRead) {
+    private int read;
+
+    public Dieta(@NonNull String id, String titulo, String descripcion, String avatar, int favorite, int read) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.avatar = avatar;
-        this.isFavorite = isFavorite;
-        this.isRead = isRead;
+        this.favorite = favorite;
+        this.read = read;
     }
 
     @NonNull
@@ -67,26 +68,23 @@ public class Dieta {
     }
 
     public int isFavorite() {
-        return isFavorite;
+        return favorite;
     }
 
     public void setFavorite(int favorite) {
-        isFavorite = favorite;
+        this.favorite = favorite;
     }
 
-    public int getIsFavorite() {
-        return isFavorite;
+    public int getFavorite() {
+        return favorite;
     }
 
-    public void setIsFavorite(int isFavorite) {
-        this.isFavorite = isFavorite;
+    public void setRead(int read) {
+        this.read = read;
     }
 
-    public int getIsRead() {
-        return isRead;
+    public int getRead() {
+        return read;
     }
 
-    public void setIsRead(int isRead) {
-        this.isRead = isRead;
-    }
 }

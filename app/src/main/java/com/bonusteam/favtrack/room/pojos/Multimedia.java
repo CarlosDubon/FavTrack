@@ -3,6 +3,8 @@ package com.bonusteam.favtrack.room.pojos;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -11,6 +13,8 @@ import com.google.gson.annotations.SerializedName;
  */
 @Entity(tableName = "multimedia_table")
 public class Multimedia {
+    @NonNull
+    @PrimaryKey
     @ColumnInfo(name = "id")
     @SerializedName("id")
     private String id;

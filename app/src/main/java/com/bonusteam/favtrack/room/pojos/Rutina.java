@@ -1,5 +1,6 @@
 package com.bonusteam.favtrack.room.pojos;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
@@ -22,9 +23,9 @@ public class Rutina {
     private String tiempo;
 
     private String avatar;
-
+    @ColumnInfo(name = "favorite")
     private int isFavorite;
-
+    @ColumnInfo(name = "read")
     private int isRead;
 
     public Rutina(@NonNull String id, String titulo, String descripcion, String tiempo, String avatar,int isFavorite,int isRead) {
@@ -79,7 +80,7 @@ public class Rutina {
         this.avatar = avatar;
     }
 
-    public int isFavorite() {
+    public int getFavorite() {
         return isFavorite;
     }
 

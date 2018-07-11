@@ -30,7 +30,7 @@ public interface DietaDao {
     @Query("SELECT * FROM dieta_table")
     LiveData<List<Dieta>> obtenerDietas();
 
-    @Query("SELECT * FROM dieta_table WHERE isFavorite=1")
+    @Query("SELECT * FROM dieta_table WHERE favorite=1")
     LiveData<List<Dieta>> obtenerDietasFavoritas();
 
 

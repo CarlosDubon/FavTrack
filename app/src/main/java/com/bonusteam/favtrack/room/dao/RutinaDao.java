@@ -31,7 +31,7 @@ public interface RutinaDao {
     @Query("SELECT * FROM rutina_table")
     LiveData<List<Rutina>> obtenerRutinas();
 
-    @Query("SELECT * FROM rutina_table WHERE isFavorite=1")
+    @Query("SELECT * FROM rutina_table WHERE favorite=1")
     LiveData<List<Rutina>> obtenerRutinasFavoritas();
 
     @Query("DELETE FROM rutina_table")
