@@ -123,4 +123,6 @@ public class LibrosEntity {
     public void setVisto(int visto) {
         this.visto = visto;
     }
+
 }
+
