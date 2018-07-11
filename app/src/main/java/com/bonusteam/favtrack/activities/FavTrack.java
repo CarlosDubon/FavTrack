@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.bonusteam.favtrack.R;
+import com.bonusteam.favtrack.fragments.ViewPagerFragment;
 import com.bonusteam.favtrack.utilities.SharedPreference;
 
 import android.support.design.widget.FloatingActionButton;
@@ -239,32 +240,45 @@ public class FavTrack extends AppCompatActivity
 //                    onBackPressed();
 //                }
                 if (childList.get(headerList.get(groupPosition)) != null) {
+
                     if (childList.get(headerList.get(groupPosition)).get(childPosition).menuName.equals(rutine_menu_title)) {
-                            fragment = new RutinesFragment();
-                            transaction.replace(R.id.container, fragment);
-                            transaction.addToBackStack(null);
-                            transaction.commit();
+
+
+                        fragment = new ViewPagerFragment();
+
+                        getSupportActionBar().setTitle("Rutines");
+
+                            FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+                            trans.replace(R.id.container, fragment);
+                            //trans.addToBackStack(null);
+                            trans.commit();
+
+
                     }
                     if (childList.get(headerList.get(groupPosition)).get(childPosition).menuName.equals(diet_menu_title)) {
-                            fragment = new DietsFragment();
+                            fragment = new ViewPagerFragment();
+                            getSupportActionBar().setTitle("Diets");
                             transaction.replace(R.id.container, fragment);
                             transaction.addToBackStack(null);
                             transaction.commit();
                     }
                     if (childList.get(headerList.get(groupPosition)).get(childPosition).menuName.equals(books_menu_title)) {
-                            fragment = new BooksFragment();
+                            fragment = new ViewPagerFragment();
+                            getSupportActionBar().setTitle("Books");
                             transaction.replace(R.id.container, fragment);
                             transaction.addToBackStack(null);
                             transaction.commit();
                     }
                     if (childList.get(headerList.get(groupPosition)).get(childPosition).menuName.equals(series_menu_title)) {
-                            fragment = new SeriesFragment();
+                            fragment = new ViewPagerFragment();
+                            getSupportActionBar().setTitle("Series");
                             transaction.replace(R.id.container, fragment);
                             transaction.addToBackStack(null);
                             transaction.commit();
                     }
                     if (childList.get(headerList.get(groupPosition)).get(childPosition).menuName.equals(movies_menu_title)) {
-                            fragment = new MoviesFragment();
+                            fragment = new ViewPagerFragment();
+                            getSupportActionBar().setTitle("Movies");
                             transaction.replace(R.id.container, fragment);
                             transaction.addToBackStack(null);
                             transaction.commit();
