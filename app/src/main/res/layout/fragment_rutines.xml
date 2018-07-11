@@ -6,6 +6,6 @@
     tools:context=".fragments.RutinesFragment"
     android:background="@android:color/holo_blue_dark">
 
-
     <include layout="@layout/recycler_view"/>
+
 </FrameLayout>
