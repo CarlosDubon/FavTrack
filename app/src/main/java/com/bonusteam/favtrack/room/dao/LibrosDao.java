@@ -7,7 +7,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.bonusteam.favtrack.room.POJOS.LibrosEntity;
+import com.bonusteam.favtrack.room.pojos.LibrosEntity;
 
 import java.util.List;
 

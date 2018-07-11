@@ -1,4 +1,4 @@
-package com.bonusteam.favtrack.room.POJOS;
+package com.bonusteam.favtrack.room.pojos;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -13,6 +13,8 @@ public class LibrosEntity {
     @ColumnInfo(name = "id")
     private String idLibro;
 
+    private String nombre;
+
     private String descripcion;
 
     private String genero;
@@ -24,6 +26,30 @@ public class LibrosEntity {
     private String anio;
 
     private String avatar;
+
+    private int favorite = 0;
+
+    private int visto;
+
+    public LibrosEntity(@NonNull String idLibro, String nombre, String descripcion, String genero, String autor, String editorial, String anio, String avatar, int favorite) {
+        this.idLibro = idLibro;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.genero = genero;
+        this.autor = autor;
+        this.editorial = editorial;
+        this.anio = anio;
+        this.avatar = avatar;
+        this.favorite = favorite;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     @NonNull
     public String getIdLibro() {
@@ -80,5 +106,21 @@ public class LibrosEntity {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public int getFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(int favorite) {
+        this.favorite = favorite;
+    }
+
+    public int getVisto() {
+        return visto;
+    }
+
+    public void setVisto(int visto) {
+        this.visto = visto;
     }
 }
