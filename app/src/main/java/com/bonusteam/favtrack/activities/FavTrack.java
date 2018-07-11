@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.bonusteam.favtrack.R;
+
 import com.bonusteam.favtrack.fragments.ViewPagerFragment;
+
+import com.bonusteam.favtrack.fragments.HomeFragment;
+
 import com.bonusteam.favtrack.utilities.SharedPreference;
 
 import android.support.design.widget.FloatingActionButton;
@@ -53,11 +57,11 @@ public class FavTrack extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fav_track);
 
-        SharedPreference.init(getApplicationContext());
-        if(SharedPreference.checkLogin()){
-            finishAffinity();
-            Log.d(TAG, "onCreate: No login");
-        }
+//        SharedPreference.init(getApplicationContext());
+//        if(SharedPreference.checkLogin()){
+//            finishAffinity();
+//            Log.d(TAG, "onCreate: No login");
+//        }
 
         setContentView(R.layout.activity_main);
 
@@ -70,6 +74,9 @@ public class FavTrack extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        Fragment fragment= new HomeFragment();
+        FragmentTransaction transaction= getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container,fragment).commit();
         expandableListView = findViewById(R.id.expandableListView);
         prepareMenuData();
         populateExpandableList();
@@ -125,7 +132,12 @@ public class FavTrack extends AppCompatActivity
     private void prepareMenuData() {
 
         get_menu_titles();
-        MenuModel menuModel = new MenuModel(health_title, true, true); //Menu of Java Tutorials
+        MenuModel menuModel = new MenuModel("home", false, true); //Menu of Java Tutorials
+        headerList.add(menuModel);
+        if (!menuModel.hasChildren) {
+            childList.put(menuModel, null);
+        }
+         menuModel = new MenuModel(health_title, true, true); //Menu of Java Tutorials
         headerList.add(menuModel);
         List<MenuModel> childModelsList = new ArrayList<>();
         MenuModel childModel = new MenuModel(rutine_menu_title, false, false);

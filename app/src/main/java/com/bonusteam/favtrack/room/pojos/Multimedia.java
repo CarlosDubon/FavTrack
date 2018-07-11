@@ -52,7 +52,8 @@ public class Multimedia {
     public Multimedia() {
     }
 
-    public Multimedia(String id, String name, String description, String idGenero, String idDirector, String anio, String id_multimedia_type, String avatar, int isFavorite, int isRead) {
+    public Multimedia(String id, String name, String description, String idGenero,
+                      String idDirector, String anio, String id_multimedia_type, String avatar, int isFavorite, int isRead) {
         this.id = id;
         this.name = name;
         this.description = description;
