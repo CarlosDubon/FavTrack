@@ -90,12 +90,12 @@ public abstract class RutinaSuggestionsAdapter extends RecyclerView.Adapter<Ruti
                 public void onClick(View v) {
                     if (rutinaList.get(position).getIsRead()==0) {
                         rutinaList.get(position).setIsRead(1);
-                        holder.favbutton.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_star_black_24dp));
+                        holder.seenbutton.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_visibility_black_24dp));
 
 
                     } else {
                         rutinaList.get(position).setIsRead(0);
-                        holder.favbutton.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_star_border_black_24dp));
+                        holder.seenbutton.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_visibility_off_black_24dp));
                     }
 
                 }

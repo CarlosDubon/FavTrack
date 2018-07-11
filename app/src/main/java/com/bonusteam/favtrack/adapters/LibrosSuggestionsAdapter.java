@@ -94,12 +94,12 @@ public abstract class LibrosSuggestionsAdapter extends RecyclerView.Adapter<Libr
                 public void onClick(View v) {
                     if (librosEntityList.get(position).getVisto()==0) {
                         librosEntityList.get(position).setVisto(1);
-                        holder.favbutton.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_star_black_24dp));
+                        holder.seenbutton.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_visibility_black_24dp));
 
 
                     } else {
                         librosEntityList.get(position).setVisto(0);
-                        holder.favbutton.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_star_border_black_24dp));
+                        holder.seenbutton.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_visibility_off_black_24dp));
                     }
 
                 }
